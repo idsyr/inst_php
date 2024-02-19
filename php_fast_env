@@ -1,0 +1,30 @@
+sudo apt install apache2 php php-mysql mysql-server
+
+cd /var/www
+sudo chmode 666 html
+
+<?php
+$hn = "localhost";
+$un = "php";
+$pw = "what are you looking at";
+$db = "plabs";
+?>
+
+
+
+create user 'php'@'localhost' identified with mysql_native_password by 'what are you looking at';
+grant create, alter, drop, insert, update, delete, select on *.* to 'php'@'localhost';
+create database plabs;
+use plabs;
+create table workers(id int, name varchar(10), age int, salary int);
+insert into workers(id, name, age, salary) values(1, 'kolya', 23, 400);
+insert into workers(id, name, age, salary) values(2, 'vasya', 24, 500);
+insert into workers(id, name, age, salary) values(3, 'petya', 25, 600);
+
+
+cd /var/log/
+echo error.log
+
+
+
+
